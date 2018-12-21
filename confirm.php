@@ -16,9 +16,13 @@
 		//echo $sql."<bR>";
 		if(mysqli_query($conn,$sql))
 		{
-			echo "<h3>You have successfully registered your account<h3>";
-			$sql='delete from otp where otp.email=="'.$email.'"';
-			mysqli_query($conn,$sql);
+			echo "<h3>You have successfully registered your account</h3><br>";
+			$sql='delete from otp where otp.email="'.$email.'"';
+			
+			if(mysqli_query($conn,$sql))
+				echo "<h4>OTP expired</h4><br>";
+			else
+				echo "<h4>OTP didn't expire</h4><br>";
 			exit();
 		}
 		else

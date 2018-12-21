@@ -22,7 +22,7 @@
 		//echo $sql."<br>";
 		$q=mysqli_query($conn,$sql);
 		mysqli_close($conn);
-		$msg="Hello your confirmation otp for php sign up is ".$otp;
+		$msg="Hello your confirmation otp for php sign up is ".$otp."\nThanks";
 		$mail=mail($email,"Confirmation otp for php sign up",$msg);
 		if(!$mail)
 		{
