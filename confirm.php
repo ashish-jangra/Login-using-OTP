@@ -17,8 +17,18 @@
 		if(mysqli_query($conn,$sql))
 		{
 			echo "<h3>You have successfully registered your account<h3>";
+			$sql='delete from otp where otp.email=="'.$email.'"';
+			mysqli_query($conn,$sql);
 			exit();
 		}
-		echo "<h3>Can't Reigster</h3>";
+		else
+			echo "<h3>Can't Reigster</h3>";
 	}
+	else
+	{
+		echo 'Wrong OTP entered<br>';
+	}
+	$sql='delete from otp where otp.email=="'.$email.'"';
+	mysqli_query($conn,$sql);
 ?>
+<a href="sign_up.php">Send OTP again</a>
